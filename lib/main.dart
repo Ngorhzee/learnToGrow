@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learn_to_grow/models/app_state_manager.dart';
 import 'package:learn_to_grow/models/toggle.dart';
+import 'package:learn_to_grow/views/email_verification.dart';
 
 import 'package:learn_to_grow/views/kids_zone.dart';
 import 'package:learn_to_grow/views/main_cat_screen.dart';

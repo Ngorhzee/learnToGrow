@@ -12,13 +12,18 @@ class TextEditing extends StatelessWidget {
       required this.type,
       this.password = false,
       required this.text2,
-      required this.controller})
+      required this.controller,
+      this.validate,
+      this.onchange,
+      })
       : super(key: key);
   final String text;
   final TextInputType type;
   final bool password;
   final String text2;
   final TextEditingController controller;
+  final String? Function(String?) ?validate;
+  final  Function(String?) ?onchange;
 
   @override
   Widget build(BuildContext context) {
@@ -30,21 +35,28 @@ class TextEditing extends StatelessWidget {
           AppText.boldsmall(
             text2,
             centered: false,
+            fontSize: 16,
+            
           ),
           TextFormField(
+           onSaved: onchange,
+            validator:validate,
+            
             obscureText: password ? true : false,
             keyboardType: type,
             cursorColor: kBlackColor,
-            style: regularMediumStyle,
+            style: regularSmallStyle,
             decoration: InputDecoration(
               contentPadding:
-                  const EdgeInsets.only(left: 34, right: 34, top: 13),
+                  const EdgeInsets.only(left: 34, right: 34,),
               fillColor: kWhiteColor,
               hintText: (text),
               hintStyle: regularSmallStyle,
               enabledBorder: const OutlineInputBorder(
-                borderSide: BorderSide.none,
+                borderSide: BorderSide(color: Colors.yellow),
+
               ),
+              errorBorder:const OutlineInputBorder(borderSide: BorderSide(color: Colors.red)),
               filled: true,
               //  focusColor: const Color(0xffEAEAEA)
               focusedBorder: OutlineInputBorder(

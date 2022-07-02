@@ -5,7 +5,7 @@ import 'package:learn_to_grow/widgets/page_view_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../utils/text.dart';
-import 'onboarding_screen.dart';
+import 'Onboarding/onboarding_screen.dart';
 
 class Test extends StatefulWidget {
 

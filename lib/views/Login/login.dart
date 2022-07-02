@@ -8,8 +8,8 @@ import 'package:learn_to_grow/views/main_cat_screen.dart';
 import 'package:learn_to_grow/widgets/button2.dart';
 import 'package:learn_to_grow/widgets/text_editing.dart';
 
-import '../utils/text.dart';
-import '../widgets/button.dart';
+import '../../utils/text.dart';
+import '../../widgets/button.dart';
 
 class LoginPage extends StatefulWidget {
 

@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
              Positioned(
               bottom:0 ,
               right: 185,
-              child:Image.asset('assets/Group(1).png')
+              child:Image.asset('assets/Group 1.jpg')
             )
           ],
         ),

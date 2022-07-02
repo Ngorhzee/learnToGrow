@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:learn_to_grow/utils/text.dart';
 
-import '../views/onboarding_screen.dart';
+import '../views/Onboarding/onboarding_screen.dart';
 
 class PageViewWidget extends StatelessWidget {
   const PageViewWidget({Key? key, required this.text, required this.image})
