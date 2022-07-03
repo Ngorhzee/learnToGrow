@@ -53,9 +53,7 @@ class Authenticaton{
   };
       http.Response response=await http.post(Uri.parse('$baseUrl/send/verification/email/'),body: body
   );
-      //var data=jsonDecode(response.body);
-      //final verify=verificationModelFromJson(response.body);
-       //var body= verificationModelToJson(response.body);
+      
       print(response.body);
       return true;
       
@@ -83,14 +81,51 @@ class Authenticaton{
       return false;
     }
   }
-  Future<bool>requestPasswordChange(String email)async{
+  Future<bool>login(String email,String password)async{
+    try{
+      Map<String,dynamic> body={
+        'email':email,
+        'password':password
+      };
+      http.Response response=await http.post(Uri.parse('$baseUrl/token/login/?asREGULAR'),body: body);
+      print(response.body);
+      final result=response.statusCode==200?true:false;
+      print(response.statusCode);
+      print(result);
+      return result;
+    }
+    catch(e){
+      print(e);
+      return false;
+    }
+  }
+  Future<bool>forgotPassword(String email)async{
     try{
       Map<String,dynamic> body={
         'email':email
       };
-      http.Response response=await http.post(Uri.parse('$baseUrl/token/login/?asREGULAR'),body: body);
+      http.Response response=await http.post(Uri.parse('$baseUrl/recover/password/trigger/'),body: body);
       print(response.body);
       return true;
+
+    }
+    catch(e){
+      print(e);
+      return false;
+    }
+  }
+  Future<bool>resetPassword(String email,String pin,String password)async{
+    try{
+      Map<String,dynamic> body={
+        'email':email,
+        'pin':pin,
+        'new_password':password
+      };
+      http.Response response=await http.post(Uri.parse('$baseUrl/recover/password/reset/'),body: body);
+      var data=jsonDecode(response.body)['verified'];
+      print(response.body);
+      return data;
+
     }
     catch(e){
       print(e);
